@@ -1,0 +1,18 @@
+# Backend
+backend/target/
+*.log
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/test-results/
+frontend/playwright-report/
+
+# Environnement local
+.env
+.env.local
+.idea/
+.vscode/
+*.iml
+.DS_Store

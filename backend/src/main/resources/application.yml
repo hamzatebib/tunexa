@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: tunexa
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/tunexa}
+    username: ${DB_USER:tunexa}
+    password: ${DB_PASSWORD:tunexa}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+  jackson:
+    default-property-inclusion: non_null
+
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+tunexa:
+  jwt:
+    # À remplacer en production par un secret d'au moins 32 caractères (variable JWT_SECRET)
+    secret: ${JWT_SECRET:dev-secret-change-me-dev-secret-change-me-0123456789}
+    ttl: 7d
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+  otp:
+    ttl: 5m
+    max-attempts: 5
+    max-sends-per-hour: 3
+    # Renvoie le code dans la réponse API (développement uniquement, jamais en production)
+    expose-code: ${OTP_EXPOSE_CODE:false}
+  orders:
+    stamp-duty: 1000             # Droit de timbre par commande, en millimes (1,000 DT)
+    cod-fee: 0                   # Frais de paiement à la livraison, en millimes
+    cod-max-total: 3000000       # Plafond du paiement à la livraison (3 000 DT)
+    free-shipping-threshold: 300000   # Livraison gratuite dès 300 DT d'articles
+    shipping-fee-by-zone: {1: 7000, 2: 8000, 3: 9000}
+    confirmation-timeout: 24h    # Commandes COD non confirmées annulées après ce délai
+    default-commission-bp: 1000  # Commission vendeur par défaut : 10 %
+  demo-data: ${DEMO_DATA:false}

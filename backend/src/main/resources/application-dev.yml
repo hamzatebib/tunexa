@@ -1,0 +1,5 @@
+# Profil de développement local : codes OTP visibles dans l'API et données de démonstration
+tunexa:
+  otp:
+    expose-code: true
+  demo-data: true
