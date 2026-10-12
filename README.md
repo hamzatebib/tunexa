@@ -4,13 +4,13 @@ Marketplace e-commerce multi-vendeurs pour la Tunisie : paiement à la livraison
 
 | Dossier | Contenu |
 |---|---|
-| `backend/` | API REST — Java 21, Spring Boot 3.5, PostgreSQL, Flyway, JWT |
+| `backend/` | API REST — Java 17+, Spring Boot 3.5, PostgreSQL, Flyway, JWT |
 | `frontend/` | Site web — React 19, TypeScript, Vite, Tailwind CSS, TanStack Query, i18next |
 | `docs/` | Cahier des fonctionnalités, backlog des tickets (Excel), scénarios d'utilisation (Word) |
 
 ## Démarrer en local
 
-Prérequis : Java 21, Node.js 22 et PostgreSQL 16 (ou Docker). Maven n'est pas nécessaire : le script `mvnw` (`mvnw.cmd` sous Windows) le télécharge automatiquement.
+Prérequis : Java 17 ou plus récent, Node.js 22 et PostgreSQL 16 (ou Docker). Maven n'est pas nécessaire : le script `mvnw` (`mvnw.cmd` sous Windows) le télécharge automatiquement.
 
 ```bash
 # 1. Base de données
