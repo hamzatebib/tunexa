@@ -10,7 +10,7 @@ Marketplace e-commerce multi-vendeurs pour la Tunisie : paiement à la livraison
 
 ## Démarrer en local
 
-Prérequis : Java 21, Maven, Node.js 22 et PostgreSQL 16 (ou Docker).
+Prérequis : Java 21, Node.js 22 et PostgreSQL 16 (ou Docker). Maven n'est pas nécessaire : le script `mvnw` (`mvnw.cmd` sous Windows) le télécharge automatiquement.
 
 ```bash
 # 1. Base de données
@@ -18,7 +18,7 @@ docker compose up -d
 
 # 2. Backend (http://localhost:8080) avec données de démonstration
 cd backend
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev   # Windows : mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=dev
 
 # 3. Frontend (http://localhost:5173), dans un autre terminal
 cd frontend
@@ -37,7 +37,7 @@ Le profil `dev` crée des comptes de démonstration et affiche les codes SMS dan
 ## Tests
 
 ```bash
-cd backend && mvn test          # tests d'intégration de l'API (base H2 en mémoire)
+cd backend && ./mvnw test          # tests d'intégration de l'API (base H2 en mémoire)
 cd frontend && npm run lint && npm run build
 ```
 
